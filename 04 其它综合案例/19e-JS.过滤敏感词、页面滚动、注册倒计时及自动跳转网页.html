@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>验证用户名案例</title>
+  <style>
+    span {
+      display: inline-block;
+      width: 250px;
+      height: 30px;
+      vertical-align: middle;
+      line-height: 30px;
+      padding-left: 15px;
+    }
+
+    .error {
+      color: red;
+      background: url(./images/error1.png) no-repeat left center;
+    }
+
+    .right {
+      color: green;
+      background: url(./images/right.png) no-repeat left center;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" id="username" autocomplete="off">
+  <span id="msg"></span>
+  <script>
+    /*  这个正则表达式要求字符串必须：
+     完全由字母、数字、连字符(-)、下划线(_) 组成
+     长度必须在 6到16个字符 之间
+     从开头到结尾都要符合这个规则 */
+    const reg = /^[a-zA-Z0-9-_]{6,16}$/
+    const input = document.querySelector('input')
+    const span = input.nextElementSibling
+    input.addEventListener('blur', function () {
+      if (reg.test(this.value)) {
+        span.className = 'right'
+        // span.classList.toggle('right')
+        span.innerHTML = '用户名格式正确'
+      } else {
+        span.className = 'error'
+        // span.classList.toggle('error')
+        span.innerHTML = '请输入6~16位数字、字母、连字符、下划线'
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+:root {
+  --text1: #121826;
+  --text2: #3c3e42;
+  --text3: #848484;
+  --text4: #c3c3c5;
+  --text-green: #16c2a3;
+  --padding15: .4rem;
+}
+
+body {
+  padding-top: 1.3333rem;
+}
+
+/* nav-bar盒子制作 */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 1.1733rem;
+  line-height: 1.1733rem;
+  box-shadow: 0 0 .08rem rgba(0, 0, 0, .1);
+}
+
+.nav-bar .back {
+  padding-left: var(--padding15);
+  color: #000;
+}
+
+.nav-bar i {}
+
+.nav-bar a {
+  font-size: .4533rem;
+  padding-right: var(--padding15);
+}
+
+/* 登录头部模块 */
+.login-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: .6667rem var(--padding15) 1.2rem;
+}
+
+.login-header h1 {
+  font-size: .64rem;
+  color: var(--text1);
+  font-weight: 500;
+}
+
+.login-header a {
+  font-size: .4rem;
+  color: var(--text2);
+}
+
+.login-header a i {
+  font-size: .5067rem;
+}
+
+/* 登录表单模块 */
+.login-form .row {
+  padding: var(--padding15) 0;
+  border-bottom: .0267rem solid #ededede5;
+  position: relative;
+}
+
+.login-form .row input {
+  font-size: 0.3733rem;
+}
+
+.login-form .row input::placeholder {
+  color: var(--tex4);
+}
+
+.login-form .row img {
+  position: absolute;
+  top: .48rem;
+  right: var(--padding15);
+  width: var(--padding15);
+  height: var(--padding15);
+}
+
+.login-form .agree {
+  font-size: .3467rem;
+  color: var(--text2);
+}
+
+.login-form .agree i {
+  font-size: var(--padding15);
+  color: var(--text4);
+}
+
+.login-form .agree a {
+  color: var(--text-green);
+}
+
+.login-form .login-btn {
+  display: block;
+  width: 100%;
+  height: 1.1733rem;
+  border-radius: 0.5867rem;
+  background: #FAFAFA;
+  color: #d9dbde;
+  font-size: .4267rem;
+}
+
+.forget {
+  padding: .4rem;
+  text-align: center;
+}
+
+.forget a {
+  font-size: .3733rem;
+  color: var(--text3);
+}
+
+/* 第三方登录模块 */
+.third-login {
+  width: 5.3333rem;
+  margin: 5.3333rem auto 1.8667rem;
+  text-align: center;
+}
+
+.third-login p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0.48rem;
+  font-size: .32rem;
+  color: var(--text4);
+}
+
+.third-login p span {
+  width: 2.4rem;
+}
+
+.third-login p::before,
+.third-login p::after {
+  content: '';
+  flex: 1;
+  height: .0267rem;
+  background: var(--text4);
+}
+
+.third-login a {
+  display: inline-block;
+  margin-top: var(--padding15);
+}
+
+.third-login a img {
+  width: 0.8rem;
+  height: 0.8rem;
+
+}

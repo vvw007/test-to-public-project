@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>随机点名网页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .box {
+      width: 600px;
+      margin: 50px auto;
+      display: flex;
+      font-size: 25px;
+      line-height: 40px;
+    }
+
+    .qs {
+      width: 450px;
+      height: 40px;
+      color: red;
+    }
+
+    .btns {
+      text-align: center;
+    }
+
+    .btns button {
+      width: 120px;
+      height: 35px;
+      margin: 0 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>随机点名</h2>
+  <div class="box">
+    <span>名字是：</span>
+    <div class="qs">这里显示姓名</div>
+  </div>
+  <div class="btns">
+    <button class="start">开始</button>
+    <button class="end">结束</button>
+  </div>
+  <script>
+    // 数据数组
+    const arr = ['张三', '李四', '王五', '赵六', '钱七']
+    //业务1 开始按钮模块
+    // 定时器及随机数变量需要变成全局变量
+    let timerId = 0
+    let random = 0
+    const qs = document.querySelector('.qs')
+    // 1.1 获取开始按钮
+    const start = document.querySelector('.start')
+    // 1.2 开始按钮点击事件
+    start.addEventListener('click', function () {
+      // 1.2.1 随机数
+      timerId = setInterval(function () {
+        // 1.2.2 随机点名
+        random = Math.floor(Math.random() * arr.length)
+        console.log(arr[random])
+        qs.innerHTML = arr[random]
+      }, 35)
+      // 如果数组里面只有一个值了，让两个按钮禁用
+      if (arr.length === 1) {
+        start.disabled = true
+        end.disabled = true
+      }
+    })
+    //业务2 结束按钮模块
+    // 2.1 获取结束按钮
+    const end = document.querySelector('.end')
+    // 2.2 结束按钮点击事件
+    end.addEventListener('click', function () {
+      // 2.2.1 清除定时器
+      clearInterval(timerId)
+      // 2.2.2 清空显示姓名
+      arr.splice(random, 1)
+      console.log(arr)
+    })
+  </script>
+</body>
+
+</html>

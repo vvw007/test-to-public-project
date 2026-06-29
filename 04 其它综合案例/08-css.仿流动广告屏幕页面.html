@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仿流动广告屏幕页面</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ecf4ff;
+    }
+
+    .box {
+      width: 1200px;
+      margin: 100px auto;
+      /* border: 2px solid red; */
+      overflow: hidden;
+    }
+
+    .scroll {
+      display: flex;
+      animation: scroll 5s linear infinite;
+    }
+
+    .ad1 {
+      display: grid;
+      grid-template-columns: repeat(6, 180px);
+      grid-template-rows: repeat(4, 90px);
+      gap: 16px 20px;
+      margin-right: 20px;
+    }
+
+    .ad1 img {
+      width: 180px;
+      height: 90px;
+      border-radius: 6px;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-1200px);
+      }
+    }
+
+    .box:hover .scroll {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="scroll">
+      <div class="ad1">
+        <img src="./img/ad1.jpg" alt="">
+        <img src="./img/ad2.jpg" alt="">
+        <img src="./img/ad3.jpg" alt="">
+        <img src="./img/ad4.jpg" alt="">
+        <img src="./img/ad5.jpg" alt="">
+        <img src="./img/ad6.jpg" alt="">
+        <img src="./img/ad1.jpg" alt="">
+        <img src="./img/ad2.jpg" alt="">
+        <img src="./img/ad3.jpg" alt="">
+        <img src="./img/ad4.jpg" alt="">
+        <img src="./img/ad5.jpg" alt="">
+        <img src="./img/ad6.jpg" alt="">
+        <img src="./img/ad1.jpg" alt="">
+        <img src="./img/ad2.jpg" alt="">
+        <img src="./img/ad3.jpg" alt="">
+        <img src="./img/ad4.jpg" alt="">
+        <img src="./img/ad5.jpg" alt="">
+        <img src="./img/ad6.jpg" alt="">
+        <img src="./img/ad1.jpg" alt="">
+        <img src="./img/ad2.jpg" alt="">
+        <img src="./img/ad3.jpg" alt="">
+        <img src="./img/ad4.jpg" alt="">
+        <img src="./img/ad5.jpg" alt="">
+        <img src="./img/ad6.jpg" alt="">
+
+      </div>
+      <div class="ad1">
+        <img src="./img/ad1.jpg" alt="">
+        <img src="./img/ad2.jpg" alt="">
+        <img src="./img/ad3.jpg" alt="">
+        <img src="./img/ad4.jpg" alt="">
+        <img src="./img/ad5.jpg" alt="">
+        <img src="./img/ad6.jpg" alt="">
+        <img src="./img/ad1.jpg" alt="">
+        <img src="./img/ad2.jpg" alt="">
+        <img src="./img/ad3.jpg" alt="">
+        <img src="./img/ad4.jpg" alt="">
+        <img src="./img/ad5.jpg" alt="">
+        <img src="./img/ad6.jpg" alt="">
+        <img src="./img/ad1.jpg" alt="">
+        <img src="./img/ad2.jpg" alt="">
+        <img src="./img/ad3.jpg" alt="">
+        <img src="./img/ad4.jpg" alt="">
+        <img src="./img/ad5.jpg" alt="">
+        <img src="./img/ad6.jpg" alt="">
+        <img src="./img/ad1.jpg" alt="">
+        <img src="./img/ad2.jpg" alt="">
+        <img src="./img/ad3.jpg" alt="">
+        <img src="./img/ad4.jpg" alt="">
+        <img src="./img/ad5.jpg" alt="">
+        <img src="./img/ad6.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

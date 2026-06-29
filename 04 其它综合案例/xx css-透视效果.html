@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>透视效果</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      /* 透视效果的实现需要在父元素上设置 perspective 属性 */
+      /* perspective: 500px; */
+    }
+
+    img {
+      /* 在这个3D旋转案例中，设置 display: block; 主要是为了实现：
+
+1. 水平居中对齐 （通过 margin: auto ）
+2. 确保3D变换的稳定性和可预测性
+3. 避免行内元素的布局问题 */
+      display: block;
+      width: 400px;
+      transition: all 1s;
+      margin: 100px auto;
+    }
+
+    .ldhx {
+      transform: rotatex(-30deg);
+    }
+
+    /* 给子元素添加透视效果 但是需要注意的是，子元素透视要写在前面 */
+    .ldhy {
+      transform: perspective(400px) rotatey(30deg);
+    }
+
+    .ldhz:hover {
+      transform: perspective(400px) rotatez(180deg);
+    }
+  </style>
+</head>
+
+<body>
+  <img src="./img/ldhx.png" alt="" class="ldhx">
+  <img src="./img/ldhy.jpg" alt="" class="ldhy">
+  <img src="./img/ldhz.webp" alt="" class="ldhz">
+</body>
+
+</html>

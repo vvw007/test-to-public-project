@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仿图像时钟及格式化时间网页</title>
+  <style>
+    div {
+      width: 300px;
+      height: 40px;
+      border: 1px solid red;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+
+    /* // 使用里面的方法
+    console.log(` 日期对象的年份是：${date.getFullYear()}`)
+    console.log(` 日期对象的月份是：${date.getMonth() + 1}`)//月份要+1
+    console.log(` 日期对象的日期是：${date.getDate()}`)
+    console.log(` 日期对象的星期是：${date.getDay()}`)//星期0是星期日
+    console.log(` 日期对象的小时是：${date.getHours()}`)
+    console.log(` 日期对象的分钟是：${date.getMinutes()}`)
+    console.log(` 日期对象的秒是：${date.getSeconds()}`)
+    console.log(` 日期对象的毫秒是：${date.getMilliseconds()}`) */
+    const div = document.querySelector('div')
+    // 格式化时间
+    function getMyDate() {
+      // 获得日期对象
+      const date = new Date()
+      let h = date.getHours()
+      let m = date.getMinutes()
+      let s = date.getSeconds()
+      // 格式化时间
+      h = h < 10 ? '0' + h : h
+      m = m < 10 ? '0' + m : m
+      s = s < 10 ? '0' + s : s
+      return `今天是：${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日 ${h}:${m}:${s}`
+    }
+    div.innerHTML = getMyDate()
+    // 每秒钟调用一次getMyDate()方法
+    setInterval(function () {
+      div.innerHTML = getMyDate()
+    }, 1000)  
+  </script>
+</body>
+
+</html>

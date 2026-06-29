@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>列车出发倒计时网页</title>
+  <style>
+    .countdown {
+      width: 300px;
+      height: 305px;
+      text-align: center;
+      line-height: 1;
+      color: #fff;
+      background-color: brown;
+      /* background-size: 240px; */
+      /* float: left; */
+      overflow: hidden;
+    }
+
+    .countdown .next {
+      font-size: 16px;
+      margin: 25px 0 14px;
+    }
+
+    .countdown .title {
+      font-size: 33px;
+    }
+
+    .countdown .tips {
+      margin-top: 80px;
+      font-size: 23px;
+    }
+
+    .countdown small {
+      font-size: 17px;
+    }
+
+    .countdown .clock {
+      width: 220px;
+      margin: 18px auto 0;
+      overflow: hidden;
+    }
+
+    .countdown .clock span,
+    .countdown .clock i {
+      display: block;
+      text-align: center;
+      line-height: 34px;
+      font-size: 23px;
+      float: left;
+    }
+
+    .countdown .clock span {
+      width: 34px;
+      height: 34px;
+      border-radius: 2px;
+      background-color: #303430;
+    }
+
+    .countdown .clock i {
+      width: 20px;
+      font-style: normal;
+    }
+
+    .countdown .clock span:first-child {
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="countdown">
+    <p class="next">今天是2222年2月22日</p>
+    <p class="title">出发倒计时</p>
+    <p class="clock">
+      <span id="day">00</span>
+      <i>天-</i>
+      <i>&nbsp;&nbsp;</i>
+      <span id="hour">00</span>
+      <i>:</i>
+      <span id="minutes">25</span>
+      <i>:</i>
+      <span id="scond">20</span>
+    </p>
+    <p class="tips">14:00:00出发坐高铁</p>
+  </div>
+  <script>
+    // 1.自定义一个随机颜色函数
+    function getRanCol(flag = true) {
+      if (flag) {
+        // 3.如果是true 则返回16进制随机颜色#ffffff
+        let str = `#`
+        let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+        for (let i = 1; i < 7; i++) {
+          let randomNum = Math.floor(Math.random() * arr.length)
+          str += arr[randomNum]
+        }
+        return str
+      }
+      else {
+        // 4.否则是false 则返回rgb随机颜色
+        let red = Math.floor(Math.random() * 256)
+        let green = Math.floor(Math.random() * 256)
+        let blue = Math.floor(Math.random() * 256)
+        return `rgb(${red},${green},${blue})`
+      }
+    }
+    // 页面刷新随机得到颜色
+    const countdown = document.querySelector('.countdown')
+    countdown.style.backgroundColor = getRanCol()
+    // 倒计时函数封装
+    function getCountDown() {
+      // 1.获取当前的时间蹉
+      const now = +new Date()
+      // 2.获取目标时间的时间蹉
+      const last = +new Date(`2026-02-02 14:00:00`)
+      // 3.计算时间差 count 记得转换为秒
+      const count = (last - now) / 1000
+      console.log(count)
+      // 4. 转换为时分秒
+      // h = parseInt(总秒数 / 60 / 60 % 24)   //   计算小时
+      // m = parseInt(总秒数 / 60 % 60);     //   计算分数
+      // s = parseInt(总秒数 % 60);   
+      // let d = parseInt(count / 60 / 60 / 24) 
+      let d = parseInt(count / 60 / 60 / 24)
+      let h = parseInt(count / 60 / 60 % 24)
+      h = h < 10 ? '0' + h : h
+      let m = parseInt(count / 60 % 60)
+      m = m < 10 ? '0' + m : m
+      let s = parseInt(count % 60)
+      s = s < 10 ? '0' + s : s
+      console.log(h, m, s)
+      // 5. 渲染到页面
+      document.querySelector('#day').innerHTML = d
+      document.querySelector('#hour').innerHTML = h
+      document.querySelector('#minutes').innerHTML = m
+      document.querySelector('#scond').innerHTML = s
+    }
+    // 调用函数
+    getCountDown()
+    // 6. 倒计时每秒调用一次
+    setInterval(getCountDown, 1000)
+    // 时间函数封装
+    function getMyDate() {
+      // 获得日期对象
+      const date = new Date()
+      let h = date.getHours()
+      let m = date.getMinutes()
+      let s = date.getSeconds()
+      // 格式化时间
+      h = h < 10 ? '0' + h : h
+      m = m < 10 ? '0' + m : m
+      s = s < 10 ? '0' + s : s
+      return `现在是：${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日 ${h}:${m}:${s}`
+    }
+    const next = document.querySelector('.next')
+    next.innerHTML = getMyDate()
+    // 每秒钟调用一次getMyDate()方法
+    setInterval(function () {
+      next.innerHTML = getMyDate()
+    }, 1000)  
+  </script>
+</body>
+
+</html>

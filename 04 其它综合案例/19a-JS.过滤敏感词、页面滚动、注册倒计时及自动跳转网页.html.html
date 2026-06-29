@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5秒钟后自动跳转页面</title>
+</head>
+
+<body>
+  <a href="https://www.baidu.com">支付成功，<span>5</span>秒后自动跳转到首页</a>
+  <script>
+    // 1.获取元素
+    const span = document.querySelector('span');
+    // 2.设置定时器
+    let time = 5;
+    const timer = setInterval(function () {
+      time--;
+      span.innerHTML = time;
+      if (time === 0) {
+        // 3.清除定时器
+        clearInterval(timer);
+        // 4.跳转页面
+        location.href = 'https://www.baidu.com';
+      }
+    }, 1000);
+  </script>
+</body>
+
+</html>

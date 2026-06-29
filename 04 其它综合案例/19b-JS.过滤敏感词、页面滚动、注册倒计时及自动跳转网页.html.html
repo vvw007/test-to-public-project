@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>焦点事件</title>
+</head>
+
+<body>
+  <input type="text" id="username">
+  <script>
+    // 1. 获取元素
+    const username = document.querySelector(`#username`)
+    // 2. 注册事件
+    username.addEventListener(`focus`, function () {
+      console.log(`获得焦点`)
+    })
+    // 3. 失去焦点事件
+    username.addEventListener(`blur`, function () {
+      console.log(`失去焦点`)
+    })
+  </script>
+</body>
+
+</html>

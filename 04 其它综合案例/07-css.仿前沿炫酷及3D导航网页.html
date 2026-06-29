@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仿前沿导航炫酷导航栏及3D导航</title>
+  <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4090357_z2qpnic06um.css">
+  <link rel="stylesheet" href="http://at.alicdn.com/t/c/font_4096975_pswyqyk8tdo.css">
+  <style>
+    /* 1.去除默认样式 设置底色 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+
+
+    body {
+      display: flex;
+      flex-direction: column;
+      /* 核心：主轴改为垂直方向，盒子自然从上往下排 */
+      justify-content: space-around;
+      /* 让两个盒子分别贴顶部和底部（不重叠） */
+      /* 或者用 justify-content: center; 配合 gap 让它们居中且分开 */
+      align-items: center;
+      /* 交叉轴（水平）居中 */
+      min-height: 100vh;
+      background-color: #ccc;
+    }
+
+    .menu {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn {
+      position: absolute;
+      z-index: 100;
+      width: 60px;
+      height: 60px;
+      background-color: #303640;
+      color: #fff;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 1.25s;
+    }
+
+    .btn i {
+      font-size: 32px;
+    }
+
+
+    .menu span {
+      /* 基本大小 */
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      background-color: #303640;
+      color: var(--clr);
+      border: 2px solid var(--clr);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all .5s calc(0.1s * var(--i));
+    }
+
+    /* 鼠标经过munu里面的btn做选旋转效果 */
+    .menu:hover .btn {
+      transform: rotate(315deg);
+    }
+
+    /* 鼠标经过 menu 里面的span 动画 */
+    .menu:hover span {
+      /* 注意书写顺序，这里我们需要的是围绕旋转 */
+      /* transform: translateX(80px) rotate(calc(360deg / 8 * var(--i))); */
+      transform: rotate(calc(360deg / 8 * var(--i))) translateX(90px);
+
+    }
+
+    /* 让里面的小图标 i 反向旋转回来 */
+    .menu:hover span i {
+      transform: rotate(calc(-360deg / 8 * var(--i)));
+    }
+
+    /* 鼠标经过span 会有一个漂亮的阴影效果 */
+    .menu span:hover {
+      box-shadow: 0 0 10px var(--clr),
+        0 0 30px var(--clr),
+        0 0 50px var(--clr);
+      background-color: var(--clr);
+      color: #333;
+      /* 想要阴影立马显示，所以去掉过渡 */
+      transition: all 0s;
+    }
+
+    /* 3D导航 */
+    /* 2.准备导航的基本样式 */
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 5px;
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* 3.1 准备导航里面图标的基本样式 */
+    ul li {
+      position: relative;
+      width: 80px;
+      height: 40px;
+      /* 开启子元素的3d空间 */
+      transform-style: preserve-3d;
+      /* 准备3d导航的旋转角度 */
+      transition: all 0.5s;
+    }
+
+    ul li span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      line-height: 40px;
+      text-align: center;
+      font-size: 16px;
+      /* background-color: #fff; */
+      /* color: #262626; */
+      text-align: center;
+    }
+
+    ul li span.front {
+      background-color: #fff;
+      color: #3b5999;
+      transform: translateZ(20px);
+    }
+
+    ul li span.bottom {
+      background-color: #3b5999;
+      color: #fff;
+      transform: translateY(20px) rotateX(-90deg);
+    }
+
+    /* 3.2 准备导航的旋转效果 */
+    ul li:hover {
+      transform: rotateX(90deg);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 酷炫导航栏 -->
+  <div class="menu">
+    <div class="btn"><i class="iconfont icon-add"></i></div>
+    <span style="--i:0;--clr: #ff2972;">
+      <i class="iconfont icon-home"></i>
+    </span>
+    <span style="--i:1;--clr: #fee800;">
+      <i class="iconfont icon-more"></i>
+    </span>
+    <span style="--i:2;--clr: #04fc43;">
+      <i class="iconfont icon-gift"></i>
+    </span>
+    <span style="--i:3;--clr: #fe00f1;">
+      <i class="iconfont icon-setting"></i>
+    </span>
+    <span style="--i:4;--clr: #00b0fe;">
+      <i class="iconfont icon-message"></i>
+    </span>
+    <span style="--i:5;--clr: #fea600;">
+      <i class="iconfont icon-cart"></i>
+    </span>
+    <span style="--i:6;--clr: #a529ff;">
+      <i class="iconfont icon-money"></i>
+    </span>
+    <span style="--i:7;--clr: #01bdab;">
+      <i class="iconfont icon-star"></i>
+    </span>
+  </div>
+
+  <!-- 3D导航 -->
+  <div class="menu3d">
+    <ul>
+      <li>
+        <span class="front iconfont icon-QQ"></span>
+        <span class="bottom iconfont icon-QQ"></span>
+      </li>
+      <li>
+        <span class="front iconfont icon-weixin"></span>
+        <span class="bottom iconfont icon-weixin"></span>
+      </li>
+      <li>
+        <span class="front iconfont icon-douyin"></span>
+        <span class="bottom iconfont icon-douyin"></span>
+      </li>
+      <li>
+        <span class="front iconfont icon-xinlangweibo"></span>
+        <span class="bottom iconfont icon-xinlangweibo"></span>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>

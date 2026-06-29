@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仿前沿导航卡片折叠效果网页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    .box {
+      max-width: 1320px;
+      height: 527px;
+      margin: 100px auto;
+      overflow: hidden;
+    }
+
+    .box ul {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      grid-template-rows: 527px;
+      gap: 8px;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .box .item {
+      position: relative;
+    }
+
+    .box .item p {
+      position: absolute;
+      bottom: -100px;
+      left: 0;
+      padding: 20px;
+      color: #fff;
+    }
+
+    .box .item:hover p {
+      bottom: 0;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .box .item:first-child {
+      background: url(./img/pic1.jpg) no-repeat 50% / cover;
+    }
+
+    .box .item:nth-child(2) {
+      background: url(./img/pic2.jpg) no-repeat 50% / cover;
+    }
+
+    .box .item:nth-child(3) {
+      background: url(./img/pic3.jpg) no-repeat 50% / cover;
+    }
+
+    .box .item:nth-child(4) {
+      background: url(./img/pic4.jpg) no-repeat 50% / cover;
+    }
+
+    /* 当我们鼠标经过第一个小li时，我们希望第一个li的宽度是2fr，其他的都是1fr */
+    .box ul:has(.item:nth-child(1):hover) {
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+
+    /* 当我们鼠标经过第二个小li时，我们希望第二个li的宽度是2fr，其他的都是1fr */
+    .box ul:has(.item:nth-child(2):hover) {
+      grid-template-columns: 1fr 2fr 1fr 1fr;
+    }
+
+    /* 当我们鼠标经过第三个小li时，我们希望第三个li的宽度是2fr，其他的都是1fr */
+    .box ul:has(.item:nth-child(3):hover) {
+      grid-template-columns: 1fr 1fr 2fr 1fr;
+    }
+
+    /* 当我们鼠标经过第四个小li时，我们希望第四个li的宽度是2fr，其他的都是1fr */
+    .box ul:has(.item:nth-child(4):hover) {
+      grid-template-columns: 1fr 1fr 1fr 2fr;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <ul>
+      <li class="item">
+        <P>超长质保</P>
+      </li>
+      <li class="item">
+        <P>专业服务</P>
+      </li>
+      <li class="item">
+        <P>专业服务</P>
+      </li>
+      <li class="item">
+        <P>专业服务</P>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>

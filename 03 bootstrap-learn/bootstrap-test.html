@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 新 Bootstrap5 核心 CSS 文件 -->
+  <link rel="stylesheet" href="./bootstrap-5.3.8-dist/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Hello Bootstrap</h1>
+  </div>
+  <!-- 容器边框和颜色 -->
+  <!-- 这个容器有边框和额外的内边距和外边距。 -->
+  <div class="container p-5 my-5 border">
+    <p>这个容器有边框和额外的内边距和外边距。</p>
+  </div>
+  <!-- 这个容器有深色背景色和白色文本，以及额外的内边距和外边距。 -->
+  <div class="container p-5 my-5 bg-dark text-white">
+    <p>这个容器有深色背景色和白色文本，以及额外的内边距和外边距。</p>
+  </div>
+  <!-- 这个容器有蓝色背景色和白色文本，以及额外的内边距和外边距。 -->
+  <div class="container p-5 my-5 bg-primary text-white">
+    <p>这个容器有蓝色背景色和白色文本，以及额外的内边距和外边距。</p>
+  </div>
+  <!-- 响应式容器 -->
+  <!-- <div class="container-sm">.container-sm</div> -->
+  <!-- <div class="container-md">.container-md</div> -->
+  <div class="container-lg">.container-lg</div>
+  <!-- <div class="container-xl">.container-xl</div> -->
+  <!-- <div class="container-xxl">.container-xxl</div> -->
+  <!-- Bootstrap5 文字/排版 -->
+  <p class="display-1">Display 1</p>
+  <p class="display-2">Display 2</p>
+  <p class="display-3">Display 3</p>
+  <p class="display-4">Display 4</p>
+  <p class="display-5">Display 5</p>
+  <p class="display-6">Display 6</p>
+  <!-- small 字体,<mark> 和 .mark 的样式 -->
+  <div class="container p-5">
+    <h1>
+      产品介绍
+      <small>small全新升级版本</small>
+    </h1>
+    <h2>
+      主要特性
+      <span class="small">small（必读）</span>
+    </h2>
+    <h3>
+      会员套餐
+      <small class="text-muted">small限时优惠</small>
+    </h3>
+    <p>
+      产品介绍
+      <mark>mark全新升级版本</mark>
+    </p>
+    <p>1这段文字中包含 <mark>mark需要高亮</mark> 的内容。</p>
+    <p>2这段文字中包含 <span class="mark">mark需要高亮</span> 的内容。</p>
+    <p>请注意：<mark class="bg-danger text-white">mark红色高亮</mark> 表示紧急</p>
+    <p>已完成：<mark class="bg-success text-white">mark绿色高亮</mark> 表示正常</p>
+    <p>警告：<mark class="bg-warning text-white">mark黄色高亮</mark> 表示警告</p>
+    <p>信息：<mark class="bg-info text-white">mark蓝色高亮</mark> 表示信息</p>
+    <p>成功：<mark class="bg-success text-white">mark绿色高亮</mark> 表示成功</p>
+    <p>危险：<mark class="bg-danger text-white">mark红色高亮</mark> 表示危险</p>
+    <p>警告：<mark class="bg-warning text-white">mark黄色高亮</mark> 表示警告</p>
+    <p>信息：<mark class="bg-info text-white">mark蓝色高亮</mark> 表示信息</p>
+    <p>成功：<mark class="bg-success text-white">mark绿色高亮</mark> 表示成功</p>
+    <p>危险：<mark class="bg-danger text-white">mark红色高亮</mark> 表示危险</p>
+    <p>警告：<mark class="bg-warning text-white">mark黄色高亮</mark> 表示警告</p>
+    <p>信息：<mark class="bg-info text-white">mark蓝色高亮</mark> 表示信息</p>
+    <!-- <abbr> -->
+    <p>缩写：<abbr title="缩写">缩</abbr></p>
+    <h1>缩写</h1>
+    <p>abbr 元素用于标记缩写或首字母缩略词：</p>
+    <p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+
+
+  </div>
+  <!--  -->
+  <h1>事件冒泡 - 点击高亮</h1>
+  <div class="d-flex justify-content-around" id="parentBox">
+    <div class="p-2  item-box">弹性项目 1</div>
+    <div class="p-2  item-box">弹性项目 2</div>
+    <div class="p-2  item-box">弹性项目 3</div>
+  </div>
+
+  <script>
+    // 事件冒泡 - 点击高亮
+
+    // 获取父容器
+    const parent = document.getElementById('parentBox');
+
+    // 在父容器上绑定点击事件，利用事件冒泡捕获子元素
+    parent.addEventListener('click', function (e) {
+      // e.target 是实际被点击的元素（因为冒泡，点击子元素时事件会向上传递到父元素）
+      const clicked = e.target;
+
+      // 1. 判断是否点在了子盒子上（通过 class 包含 item-box 来过滤，避免点到父容器空白区域）
+      if (clicked.classList.contains('item-box')) {
+        // 2. 移除所有子盒子的高亮（bg-warning），恢复为 bg-light
+        const allItems = parent.querySelectorAll('.item-box');
+        allItems.forEach(item => {
+          item.classList.remove('bg-warning');
+          item.classList.add('bg-light');
+        });
+
+        // 3. 给当前点击的盒子添加高亮效果（这里用 Bootstrap 的 bg-warning 黄色背景）
+        clicked.classList.remove('bg-light');
+        clicked.classList.add('bg-warning');
+      }
+    }); 
+  </script>
+
+
+  <!-- 最新的 Bootstrap5 核心 JavaScript 文件 -->
+  <script src="./bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

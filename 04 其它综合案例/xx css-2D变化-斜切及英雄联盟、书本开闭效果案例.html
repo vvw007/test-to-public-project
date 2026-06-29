@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2D变化-斜切</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 55px;
+      text-align: center;
+      line-height: 55px;
+      color: #fff;
+      background-color: pink;
+      transform: skewX(-18deg);
+      margin: 100px auto;
+
+    }
+
+    .card {
+      position: relative;
+      width: 240px;
+      height: 280px;
+      margin: 100px auto;
+    }
+
+    .card div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 240px;
+      height: 280px;
+      border-radius: 0 30px 40px 40px;
+      transition: all 0.5s;
+      transform-origin: top left;
+    }
+
+    .card .front {
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.4);
+      /* 添加滤镜效果，后期会教学 */
+      backdrop-filter: blur(30px);
+    }
+
+    .card .back {
+      background-color: purple;
+      transform: skewY(8deg);
+    }
+
+    /* 鼠标经过card 里面的back 元素 实现斜切变大 */
+    .card:hover .back {
+      transform: skewY(15deg);
+      width: 200px;
+    }
+
+    .card:hover .front {
+      transform: translateY(-3PX);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">英雄联盟</div>
+
+  <!-- 案例效果 -->
+  <div class="card">
+
+    <div class="front"></div>
+    <div class="back"></div>
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+# =========================
+# 依赖目录（千万不要上传）
+# =========================
+node_modules/
+# npm / yarn / pnpm 安装的第三方依赖
+# 体积巨大，且可通过 package.json 重新安装
+
+.pnp/
+# Yarn PnP（Plug'n'Play）模式生成的目录
+
+.pnp.js
+# Yarn PnP 的配置文件
+
+# =========================
+# 构建 & 打包产物
+# =========================
+dist/
+# Vite / Rollup / Webpack 通用构建目录
+
+build/
+# Create React App / 传统 Webpack 构建目录
+
+.next/
+# Next.js 构建产物
+
+.nuxt/
+# Nuxt.js 构建产物
+
+.output/
+# Nuxt 3 构建产物
+
+out/
+# 静态导出目录（Next.js / Nuxt）
+
+# =========================
+# 环境变量（含敏感信息，严禁上传）
+# =========================
+.env
+# 默认环境变量文件（可能包含密钥）
+
+.env.local
+# 本地环境变量（优先级高，常含私钥）
+
+.env.development
+.env.development.local
+# 开发环境配置
+
+.env.production
+.env.production.local
+# 生产环境配置
+
+.env.test
+.env.test.local
+# 测试环境配置
+
+# =========================
+# 缓存 & 临时文件
+# =========================
+.cache/
+# Babel / Vite / ESLint 等工具的缓存目录
+
+.parcel-cache/
+# Parcel 打包工具缓存
+
+.eslintcache
+# ESLint 缓存文件
+
+.stylelintcache
+# Stylelint 缓存文件
+
+turbo.log
+# Turborepo 日志
+
+# =========================
+# 日志 & 报错信息
+# =========================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+# 包管理器生成的调试日志
+
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+# 某些 CI / 测试工具生成的报告文件
+
+# =========================
+# 操作系统 & 编辑器文件
+# =========================
+.DS_Store
+# macOS 文件系统元数据文件
+
+Thumbs.db
+# Windows 缩略图缓存
+
+Desktop.ini
+# Windows 文件夹视图配置文件
+
+# =========================
+# Windows 快捷方式
+# =========================
+*.lnk
+# Windows 快捷方式（相当于 macOS 的 alias）
+
+*.url
+# IE / Edge 网址快捷方式
+
+*.website
+# Edge 网站快捷方式
+
+# =========================
+# Markdown 文档
+# =========================
+*.md
+# 忽略所有 Markdown 文件
+# 常用于 README.md、CHANGELOG.md、说明文档等
+# 不影响本地阅读，仅不上传到 Git
+
+# =========================
+# IDE & 编辑器配置
+# =========================
+.idea/
+# JetBrains 系列（WebStorm / IntelliJ）
+
+.vscode/*
+# VS Code 工作区配置
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+# 只保留团队共享的配置，忽略个人偏好
+
+# =========================
+# 测试覆盖率
+# =========================
+coverage/
+# Jest / Vitest / Cypress 等测试覆盖率报告
+
+.nyc_output/
+# NYC（istanbul）覆盖率工具输出目录
+
+# =========================
+# 临时 & 备份文件
+# =========================
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+# 编辑器临时文件、备份文件
