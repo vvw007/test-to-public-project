@@ -16,7 +16,7 @@
   right: 0;
   object-fit: cover;
   width: 100%;
-  height: 100vh;
+  height: 80vh;
 
 }
 
@@ -41,9 +41,9 @@
 /* 按钮边框属性样式 */
 .button-box {
   width: 100%;
-  height: 200px;
+  height: 20vh;
   position: absolute;
-  top: 90%;
+  top: 80%;
   /* left: 50%; */
   /* transform: translate(-50%, -50%); */
   background-color: #171723
@@ -62,7 +62,7 @@
   display: flex;
   width: 650px;
   justify-content: space-between;
-  margin: 100px auto;
+  margin: 8vh auto;
 }
 
 .button {

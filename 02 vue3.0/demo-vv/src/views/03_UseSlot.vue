@@ -17,13 +17,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import Pannel from "../components/03/Pannel";
-export default {
-  components: {
-    Pannel,
-  },
-};
 </script>
 
 <style>

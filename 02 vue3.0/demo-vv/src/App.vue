@@ -1,82 +1,39 @@
 <template>
   <div>
-    <MyHeader
-      :background="'blue'"
-      :fontColor="'white'"
-      title="TabBar案例"
-    ></MyHeader>
-    <div class="main">
-      <component :is="comName"></component>
-    </div>
-    <MyTabBar :arr="tabList" @changeCom="changeComFn"></MyTabBar>
+    <h1>1. 动态dynamic组件使用</h1>
+    <UseDynamic />
+    <hr />
+    <h1>2. 组件缓存</h1>
+    <UseDynamic2 />
+    <hr />
+    <h1>3. 组件-插槽</h1>
+    <UseSlot />
+    <hr />
+    <h1>4. 组件-具名插槽</h1>
+    <UseSlot2 />
+    <hr />
+    <h1>5. 组件-作用域插槽</h1>
+    <UseSlot3 />
+    <hr />
+    <h1>6. 作用域插槽-使用场景</h1>
+    <p>组件内标签可以随意定义和数据使用</p>
+    <UseTable />
+    <hr />
+    <h1>7. 自定义指令</h1>
+    <UseDirective />
   </div>
 </template>
 
-<script>
-import MyHeader from "./components/MyHeader";
-// 目标: 完成底部封装
-// 1. MyTabBar.vue 组件标签+样式 准备
-// 2. 字体图标引入
-// 3. 准备底部数据
-// 4. 使用MyTabBar组件, 传入数据(父->子), 循环产生底部导航
-// 5. 子组件内props自定义检验规则(2-5项)
-// 6. 子组件内循环产生底部导航
-import MyTabBar from "./components/MyTabBar";
-
-// 目标: 切换组件显示
-// 1. 创建组件 - 编写内容
-// 2. 引入App.vue注册
-// 3. 挂载点设置is
-// 4. 切换comName的值(重要)
-// 5. 底部导航点击- MyTabBar.vue里
-// 子 -> 父技术 (传要切换的组件名出来)
-
-import MyGoodsList from "./views/MyGoodsList";
-import MyGoodsSearch from "./views/MyGoodsSearch";
-import MyUserInfo from "./views/MyUserInfo";
-export default {
-  data() {
-    return {
-      comName: "MyGoodsList", // 默认显示的组件
-      tabList: [
-        // 底部导航的数据
-        {
-          iconText: "icon-shangpinliebiao",
-          text: "商品列表",
-          componentName: "MyGoodsList",
-        },
-        {
-          iconText: "icon-sousuo",
-          text: "商品搜索",
-          componentName: "MyGoodsSearch",
-        },
-        {
-          iconText: "icon-user",
-          text: "我的信息",
-          componentName: "MyUserInfo",
-        },
-      ],
-    };
-  },
-  components: {
-    MyHeader,
-    MyTabBar,
-    MyGoodsList,
-    MyGoodsSearch,
-    MyUserInfo,
-  },
-  methods: {
-    changeComFn(cName) {
-      this.comName = cName; // MyTabBar里选出来的组件名赋予给is属性的comName
-      // 导致组件的切换
-    },
-  },
-};
+<script setup>
+import UseDynamic from "./views/01_UseDynamic";
+import UseDynamic2 from "./views/02_UseDynamic";
+import UseSlot from "./views/03_UseSlot";
+import UseSlot2 from "./views/04_UseSlot";
+import UseSlot3 from "./views/05_UseSlot";
+import UseTable from "./views/06_UseTable";
+import UseDirective from "./views/07_UseDirective";
 </script>
 
 <style scoped>
-.main {
-  padding-top: 45px;
-  padding-bottom: 51px;
-}
+/* 样式可根据需要添加 */
 </style>
