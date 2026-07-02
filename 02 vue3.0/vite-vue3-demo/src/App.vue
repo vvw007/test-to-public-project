@@ -1,7 +1,6 @@
 <template>
   <div class="app">
     <h2>🚀 用户注册系统</h2>
-
     <!-- 切换按钮 -->
     <div class="tab">
       <button
